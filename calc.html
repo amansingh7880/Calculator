@@ -1,0 +1,173 @@
+<!-- Design By foolishdeveloper.com -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        
+
+* , html, body, p {
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    
+
+    
+}
+body{
+    margin-top:5rem;
+    background-image: url(assests/images/pat.jpg);
+    
+}
+ 
+
+/* Grid */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+    border: #09e980 5px;
+    
+}
+ 
+
+.calc-container {
+    display: grid;
+    box-shadow: 0 14px 28px rgba(243, 6, 6, 0.25), 0 10px 10px rgba(238, 223, 8, 0.22);
+}
+
+.dot {
+    grid-column: span 2;
+}
+
+.equal {
+    grid-row: span 2;
+}
+
+#buttons-container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    text-align: center;
+    
+}
+
+/* Input */
+#input {
+    width: 100%;
+    padding-right: 10px;
+    font-size: 3em;
+    text-align: right;
+    height: 2em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #e21111;
+    background-color: #0df0b7;
+    transition: all 0.3s ease-in
+}
+
+/* Btn's */
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+    font-size: 2em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    border: 0.3px solid rgba(251, 253, 255, 0.171);
+
+    
+}
+
+.btn-num {
+    background-color: #d9f00b;
+    color: #6885A7;
+}
+
+.btn-num:hover {
+    background-color: #3b0aec;
+}
+
+.btn-operator {
+ 
+    background-color: #565e4b;
+    color: #ffffff;
+}
+
+.btn-operator:hover {
+    background-color: rgb(196, 52, 52) !important
+}
+ 
+.equal{
+    background-color: #1b1518;
+}
+h1{
+    text-align: center;
+    color:rgba(0, 255, 213, 0.336);
+    
+}
+    </style>
+    
+</head>
+<body>
+    <h1>My Calculator</h1>
+  
+          <div class="main-container">
+            <div class="calc-container">
+                <div id="input"class="">
+                </div>
+                <div id='buttons-container'>
+                    <div class="btn btn-operator " onclick="clearInput()">C</div>
+                    <div class="btn btn-operator " onclick="eraseNum()">⌦</div>
+                    <div class="btn btn-operator " onclick="insertNum('/')">/</div>
+                    <div class="btn btn-operator " onclick="insertNum('*')">x</div>
+    
+                    <div class="btn btn-num" onclick="insertNum(7)">7</div>
+                    <div class="btn btn-num" onclick="insertNum(8)">8</div>
+                    <div class="btn btn-num" onclick="insertNum(9)">9</div>
+                    <div class="btn btn-operator " onclick="insertNum('-')">-</div>
+    
+                    <div class="btn btn-num" onclick="insertNum(4)">4</div>
+                    <div class="btn btn-num" onclick="insertNum(5)">5</div>
+                    <div class="btn btn-num" onclick="insertNum(6)">6</div>
+                    <div class="btn btn-operator " onclick="insertNum('+')">+</div>
+    
+                    <div class="btn btn-num" onclick="insertNum(1)">1</div>
+                    <div class="btn btn-num" onclick="insertNum(2)">2</div>
+                    <div class="btn btn-num" onclick="insertNum(3)">3</div>
+                    <div class="btn btn-operator equal "onclick="equalTo()">=</div>
+                    <div class="btn btn-num dot" onclick="insertNum(0)">0</div>
+                    <div class="btn btn-num" onclick="insertNum('.')">.</div>
+    
+                </div>
+            </div>
+        </div>
+     
+        <script>
+            // Value input variable
+let inputField = document.getElementById('input');
+
+// Insert number on input fied
+let insertNum = num => inputField.textContent += num;
+
+// Do operation using eval()
+let equalTo = () => (inputField.textContent) ? inputField.textContent = eval(inputField.textContent) : false;
+
+// Remove 1 val at time
+let eraseNum = () => inputField.textContent = inputField.textContent.substring(0, inputField.textContent.length - 1);
+
+// Clear all the input
+let clearInput = () => inputField.textContent = '';
+    </script>
+</body>
+</html>
